@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ الخط الرسمي: itf Huwiya Arabic (أصول المرحلة 01) ============ */
+@font-face {
+    font-family: "itf Huwiya Arabic";
+    src: url("/fonts/itfHuwiyaArabic-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "itf Huwiya Arabic";
+    src: url("/fonts/itfHuwiyaArabic-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "itf Huwiya Arabic";
+    src: url("/fonts/itfHuwiyaArabic-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "itf Huwiya Arabic";
+    src: url("/fonts/itfHuwiyaArabic-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "itf Huwiya Arabic";
+    src: url("/fonts/itfHuwiyaArabic-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============ متغيرات الهوية من design-system.md ============ */
+:root {
+    --mz-navy: #0C1C3D;
+    --mz-emerald: #1AB59C;
+    --mz-ivory: #CECECE;
+    --mz-petrol: #0C1C3D;
+    --mz-white: #FFFFFF;
+    --mz-surface: #10264A;
+    --mz-surface-soft: #153052;
+    --mz-border: rgba(26, 181, 156, 0.42);
+    --mz-muted: rgba(206, 206, 206, 0.72);
+    --mz-focus: #1AB59C;
+}
+
+@layer base {
+    html {
+        direction: rtl;
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply font-huwiya bg-brand-navy text-brand-ivory antialiased;
+        text-align: right;
+    }
+    ::selection {
+        background-color: var(--mz-emerald);
+        color: var(--mz-navy);
+    }
+    *:focus-visible {
+        outline: 2px solid var(--mz-focus);
+        outline-offset: 2px;
+    }
+}
+
+@layer components {
+    .mz-button-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-btn border border-brand-emerald bg-brand-emerald px-6 py-3 font-bold text-brand-navy transition duration-fast hover:brightness-110 active:brightness-95 disabled:opacity-50;
+    }
+
+    .mz-button-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-btn border border-brand-emerald bg-transparent px-6 py-3 font-medium text-brand-ivory transition duration-fast hover:bg-brand-emerald/10 disabled:opacity-50;
+    }
+
+    .mz-badge {
+        @apply inline-flex items-center gap-1 rounded-pill border px-3 py-1 text-xs font-medium;
+        border-color: var(--mz-border);
+    }
+
+    .mz-card {
+        @apply rounded-card border bg-brand-surface shadow-card transition duration-base;
+        border-color: var(--mz-border);
+    }
+
+    .mz-input {
+        @apply w-full rounded-btn border bg-brand-surface px-4 py-3 text-brand-white placeholder:text-brand-muted focus:border-brand-emerald focus:outline-none;
+        border-color: var(--mz-border);
+    }
+
+    .mz-label {
+        @apply mb-1 block text-sm font-medium text-brand-ivory;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
